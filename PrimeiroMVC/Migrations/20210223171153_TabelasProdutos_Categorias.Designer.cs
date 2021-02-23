@@ -9,8 +9,8 @@ using PrimeiroMVC.Models;
 namespace PrimeiroMVC.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210223155558_TabelaProduto")]
-    partial class TabelaProduto
+    [Migration("20210223171153_TabelasProdutos_Categorias")]
+    partial class TabelasProdutos_Categorias
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,7 @@ namespace PrimeiroMVC.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descricao")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -47,6 +48,9 @@ namespace PrimeiroMVC.Migrations
 
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

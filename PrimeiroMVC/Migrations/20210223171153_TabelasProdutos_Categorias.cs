@@ -2,10 +2,23 @@
 
 namespace PrimeiroMVC.Migrations
 {
-    public partial class TabelaProduto : Migration
+    public partial class TabelasProdutos_Categorias : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Categoria",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Descricao = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categoria", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Produto",
                 columns: table => new
@@ -13,6 +26,7 @@ namespace PrimeiroMVC.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Descricao = table.Column<string>(nullable: true),
+                    Quantidade = table.Column<int>(nullable: false),
                     CategoriaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -36,6 +50,9 @@ namespace PrimeiroMVC.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Produto");
+
+            migrationBuilder.DropTable(
+                name: "Categoria");
         }
     }
 }

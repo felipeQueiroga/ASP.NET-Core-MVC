@@ -14,7 +14,7 @@ namespace PrimeiroMVC.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Cursomvc;Integrated Security=True");
+            optionsBuilder.UseSqlServer(connectionString: @"Server=DESENVOLVEDOR\SQLEXPRESS;Database=Cursomvc;Integrated Security=True");
         }
 
         public DbSet<PrimeiroMVC.Models.Produto> Produto_1 { get; set; }
